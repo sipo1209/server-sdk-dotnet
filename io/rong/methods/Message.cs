@@ -176,7 +176,7 @@ namespace donet.io.rong.methods {
 		 *
 	 	 * @return CodeSuccessReslut
 	 	 **/
-		public CodeSuccessReslut publishGroup(String fromUserId, String[] toGroupId, TxtMessage message, String pushContent = null, String pushData = null, int? isPersisted = null, int? isCounted = null, int? isIncludeSender= null) {
+		public CodeSuccessReslut publishGroup(String fromUserId, String[] toGroupId, dynamic message, String pushContent = null, String pushData = null, int? isPersisted = null, int? isCounted = null, int? isIncludeSender= null) {
 
 			if(fromUserId == null) {
 				throw new ArgumentNullException("Paramer 'fromUserId' is required");

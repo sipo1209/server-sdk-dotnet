@@ -54,6 +54,7 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="io\rong\.DS_Store" />
+    <Compile Include="io\rong\messages\IMessage.cs" />
     <Compile Include="io\rong\methods\Push.cs" />
     <Compile Include="io\rong\models\PlatformNotification.cs" />
     <Compile Include="io\rong\util\RongJsonUtil.cs" />

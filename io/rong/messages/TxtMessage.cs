@@ -12,12 +12,13 @@ namespace donet.io.rong.messages {
 	 * 文本消息。
 	 *
 	 */
-	public class TxtMessage  {
+	public class TxtMessage 
+    {
 		[JsonProperty]
 		private String content = "";
 		[JsonProperty]
 		private String extra = "";
-		private  static  String TYPE = "RC:TxtMsg";
+		private static String TYPE = "RC:TxtMsg";
 		
 		public TxtMessage() {
 
