@@ -176,7 +176,7 @@ namespace donet.io.rong.methods {
 		 *
 	 	 * @return CodeSuccessReslut
 	 	 **/
-		public CodeSuccessReslut publishGroup(String fromUserId, String[] toGroupId, TxtMessage message, String pushContent, String pushData, int isPersisted, int isCounted) {
+		public CodeSuccessReslut publishGroup(String fromUserId, String[] toGroupId, TxtMessage message, String pushContent = null, String pushData = null, int? isPersisted = null, int? isCounted = null, int? isIncludeSender= null) {
 
 			if(fromUserId == null) {
 				throw new ArgumentNullException("Paramer 'fromUserId' is required");
@@ -205,9 +205,11 @@ namespace donet.io.rong.methods {
 	    	postStr += "content=" + HttpUtility.UrlEncode(message.toString(),Encoding.UTF8) + "&";
 	    	postStr += "pushContent=" + HttpUtility.UrlEncode(pushContent == null ? "" : pushContent,Encoding.UTF8) + "&";
 	    	postStr += "pushData=" + HttpUtility.UrlEncode(pushData == null ? "" : pushData,Encoding.UTF8) + "&";
-            postStr += "isPersisted=" + HttpUtility.UrlEncode(Convert.ToString(isPersisted) == null ? "" : Convert.ToString(isPersisted),Encoding.UTF8) + "&";
-            postStr += "isCounted=" + HttpUtility.UrlEncode(Convert.ToString(isCounted) == null ? "" : Convert.ToString(isCounted),Encoding.UTF8) + "&";
-	    	postStr = postStr.Substring(0, postStr.LastIndexOf('&'));
+            postStr += "isPersisted=" + HttpUtility.UrlEncode(isPersisted == null ? "" : Convert.ToString(isPersisted),Encoding.UTF8) + "&";
+            postStr += "isCounted=" + HttpUtility.UrlEncode(isCounted == null ? "" : Convert.ToString(isCounted),Encoding.UTF8) + "&";
+            postStr += "isIncludeSender=" + HttpUtility.UrlEncode(isIncludeSender == null ? "" : Convert.ToString(isCounted), Encoding.UTF8) + "&";
+            
+            postStr = postStr.Substring(0, postStr.LastIndexOf('&'));
 	    	
           	return (CodeSuccessReslut) RongJsonUtil.JsonStringToObj<CodeSuccessReslut>(RongHttpClient.ExecutePost(appKey, appSecret, RongCloud.RONGCLOUDURI+"/message/group/publish.json", postStr, "application/x-www-form-urlencoded" ));
 		}
